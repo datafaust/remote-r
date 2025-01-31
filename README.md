@@ -11,5 +11,10 @@ run a containerized rserve inside your local machine that you can then connect w
 - run docker-compose up -d
 - run docker ps to make sure services are running
 - make sure you have python installed
-- now run the `.py` files in `tests` (triggering remote script not running yet, flask api is alternative)
+- now run the `.py` files in `tests`
+
+# POC test case
+- `run_commands.py` emulates a user running raw code, from a notebook frontend where they connect to an rserve instance
+
+- `run_script.py` emulates a user that has a file in the host machine (ec2 instance) and wants to remotely trigger that
 

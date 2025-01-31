@@ -10,5 +10,8 @@ RUN R -e "install.packages('Rserve')"
 # Expose Rserve port
 EXPOSE 6311
 
+WORKDIR /srv/scripts
+
+
 # Start Rserve directly when the container starts
 CMD R -e "Rserve::run.Rserve()"

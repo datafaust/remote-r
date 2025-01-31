@@ -1,3 +1,6 @@
+# example of a notebook functionality
+# lets say someone wants to write code
+# and interact with an r instance via rserve
 import pyRserve
 
 # connect

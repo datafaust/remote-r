@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  api:
+    build: ./api
+    container_name: flask_api
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./scripts:/srv/scripts
+    networks:
+      - rnet
+    environment:
+      - FLASK_ENV=production
+
+  rserve:
+    build: ./rserve
+    container_name: rserve
+    volumes:
+      - ./scripts:/srv/scripts
+    ports:
+      - "6311:6311"
+    networks:
+      - rnet
+    environment:
+      - R_ENVIRON=production
+
+networks:
+  rnet:
+    driver: bridge
+    name: rnet

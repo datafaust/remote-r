@@ -5,11 +5,12 @@ run a containerized suite of microservices - rserve, rstudio, zeppelin and flask
 ## how to run
 
 - clone and enter repo 
-- if on aws: give permissions to `chmod +x install-docker.sh` and run to install docker
+- if on aws with amazon ami: give permissions to `chmod +x install-docker-ec2.sh` and run to install docker
 - otherwise install docker and docker-compose manually
 - run docker-compose up -d
 - run docker ps to make sure services are running
 - all services should be running on your host machine
+- depending on security settings you should be able to hit http://ec2...com:port
 
 ## Scenarios
 

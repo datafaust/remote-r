@@ -24,6 +24,13 @@ curl -X POST http://localhost:5001/run-script-rserve
 {
   "output": "hello remote client from the server machine!",
 }
+
+curl -X POST http://ec2-54-158-104-21.compute-1.amazonaws.com:5001/run-script-rserve 
+{
+  "output": "hello remote client from the server machine!",
+  "status": "success"
+}
+
 ```
 
 - send code remotely

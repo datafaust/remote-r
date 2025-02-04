@@ -3,9 +3,9 @@
 # and interact with an r instance via rserve
 import pyRserve
 
-# connect
+#host = "ec2-54-158-104-21.compute-1.amazonaws.com" # example remote
 host = "localhost"
-port = 6311 
+port = 6311  
 
 conn = pyRserve.connect(host=host, port=port)
 

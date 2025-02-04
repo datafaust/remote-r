@@ -24,8 +24,8 @@ RUN apt-get clean all && \
   apt-get purge && \
   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
  
-RUN Rscript -e "install.packages(c('rmarkdown', 'tidyverse', 'workflowr', 'BiocManager', 'magrittr', 'jsonlite', 'lubridate', 'rlang', 'assertthat', 'foreach', 'devtools'));"
-RUN Rscript -e "BiocManager::install(version = '3.12')"
+#RUN Rscript -e "install.packages(c('rmarkdown', 'tidyverse', 'workflowr', 'BiocManager', 'magrittr', 'jsonlite', 'lubridate', 'rlang', 'assertthat', 'foreach', 'devtools'));"
+#RUN Rscript -e "BiocManager::install(version = '3.12')"
 
 
 

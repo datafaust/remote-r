@@ -1,9 +1,9 @@
 # Use an official Python base image
 FROM python:3.9-slim
 
-# Install system dependencies, including R
+# Install system dependencies, including R, telnet, and net-tools (for netstat)
 RUN apt-get update && \
-    apt-get install -y r-base && \
+    apt-get install -y r-base telnet net-tools && \
     apt-get clean
 
 # Set the working directory for your Flask app

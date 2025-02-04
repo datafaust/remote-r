@@ -37,6 +37,7 @@ def run_r_script(directory, script_name):
 
 # example usage - you can change my_directory to where ever your file is on the host machine
 # aka ec2 instance
-my_directory = '/Users/fausto-personal/Documents/GitHub/remote-r/scripts/'
+#my_directory = '/Users/fausto-personal/Documents/GitHub/remote-r/scripts/'
+my_directory = ''
 script_path = 'my_script.R'
 run_r_script(my_directory, script_path)

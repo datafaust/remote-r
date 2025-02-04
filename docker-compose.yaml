@@ -18,8 +18,9 @@ services:
     container_name: rserve
     volumes:
       - ./scripts:/srv/scripts
+      - ./rserve/Rserv.conf:/etc/Rserv.conf 
     ports:
-      - "6312:6312"
+      - "6311:6311"
     networks:
       - rnet
     environment:

@@ -10,7 +10,7 @@ CORS(app)
 host = "rserve" # name of docker container
 port = 6311  
 
-@app.route('/hello', methods=['GET'])
+@app.route('/', methods=['GET'])
 def hello():
     return jsonify({'message': 'Hello from your API!'}), 200
 

@@ -19,11 +19,43 @@ services:
     volumes:
       - ./scripts:/srv/scripts
     ports:
-      - "6311:6311"
+      - "6312:6312"
     networks:
       - rnet
     environment:
       - R_ENVIRON=production
+
+  zeppelin:
+    image: apache/zeppelin:0.10.1
+    container_name: zeppelin
+    ports:
+      - "8080:8080"  # Zeppelin web UI
+      - "8443:8443"  # Optional SSL
+    volumes:
+      - zeppelin_data:/zeppelin
+    networks:
+      - rnet
+    environment:
+      - ZEPPELIN_ADDR=0.0.0.0
+      - ZEPPELIN_PORT=8080
+
+  rstudio:
+    container_name: rstudio
+    restart: unless-stopped
+    build: ./rstudio
+    volumes: 
+      - ./rstudio/scripts_example:/home/rstudio/example_scripts
+      - ./rstudio/projects:/home/rstudio/projects
+    environment:
+      - TZ=America/New_York
+      - PASSWORD=password
+    ports:
+      - "8888:8787"
+    networks:
+      - rnet
+
+volumes:
+  zeppelin_data:
 
 networks:
   rnet:

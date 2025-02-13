@@ -12,28 +12,28 @@ services:
       - rnet
     environment:
       - FLASK_ENV=production
-    restart: unless-stopped  # Ensure the container restarts automatically
-  
+    restart: unless-stopped
+
   rserve:
     build: ./rserve
     container_name: rserve
     volumes:
       - ./scripts:/srv/scripts
-      - ./rserve/Rserv.conf:/etc/Rserv.conf 
+      - ./rserve/Rserv.conf:/etc/Rserv.conf
     ports:
       - "6311:6311"
     networks:
       - rnet
     environment:
       - R_ENVIRON=production
-    restart: unless-stopped  # Ensure the container restarts automatically
+    restart: unless-stopped
 
   zeppelin:
     image: apache/zeppelin:0.10.1
     container_name: zeppelin
     ports:
-      - "8080:8080"  # Zeppelin web UI
-      - "8443:8443"  # Optional SSL
+      - "8080:8080"
+      - "8443:8443"
     volumes:
       - zeppelin_data:/zeppelin
     networks:
@@ -41,11 +41,11 @@ services:
     environment:
       - ZEPPELIN_ADDR=0.0.0.0
       - ZEPPELIN_PORT=8080
-    restart: unless-stopped  # Ensure the container restarts automatically
+    restart: unless-stopped
 
   rstudio:
     container_name: rstudio
-    restart: unless-stopped  # Ensure the container restarts automatically
+    restart: unless-stopped
     build: ./rstudio
     volumes: 
       - ./rstudio/scripts_example:/home/rstudio/example_scripts
@@ -58,8 +58,24 @@ services:
     networks:
       - rnet
 
+  jupyterhub:
+    container_name: jupyterhub
+    build: ./jupyterhub
+    volumes:
+      - ./jupyterhub:/srv/jupyterhub
+    ports:
+      - "8000:8000"
+    networks:
+      - rnet
+    environment:
+      - JUPYTERHUB_CONFIG=/srv/jupyterhub/jupyterhub_config.py
+    restart: unless-stopped
+
+
+
 volumes:
   zeppelin_data:
+  jupyterhub_data:
 
 networks:
   rnet:
